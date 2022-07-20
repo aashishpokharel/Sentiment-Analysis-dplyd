@@ -4,6 +4,8 @@ import pandas as pd
 import pickle
 from sklearn.linear_model import LogisticRegression
 from .preprocess import preprocess
+from .training_notebook import train_model
+
 loaded_model = pickle.load(open('model/79_57_logreg_final.pkl', 'rb'))
 tf           = pickle.load(open('model/tf_notebook.pkl', 'rb'))
 
@@ -34,4 +36,11 @@ def my_model(request):
         formdata = textForm()
     
     return render(request, 'model/index.html' , {'form': formdata, 'data': data , 'pred' : pred})
+
+
+def train(request):
+    if request.method == "POST":
+        train_model()
+        return render(request, 'model/train.html', {'message' : "Successfully Trained the model!"})
+    return render(request, 'model/train.html')
     

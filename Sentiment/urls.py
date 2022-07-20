@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from model.views import my_model
+from django.shortcuts import redirect
+from model.views import my_model, train
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', my_model, name = 'index' )
+    path('', my_model, name = 'index' ),
+    path('train/', train, name = 'train'),
 ]

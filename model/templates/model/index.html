@@ -9,7 +9,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" 
         crossorigin="anonymous"
     >
-    <title>Document</title>
+    <title>Sentiment Analysis</title>
     <style> 
         #id_text{
             /* px-5 py-1 m-5 rounded-full */
@@ -34,13 +34,15 @@
                         
                     </p>
                     <button type="submit" class="btn btn-success">Predict</button>
-                    </form>
-                    <p class = 'card-text'> 
+                    </form><br/>
+                    <a href = "{% url 'train' %}""><button class = 'btn btn-danger'> Go to Training!</button></a>
+                    <h3 class = 'card-text'> 
                         {% if data is not None %}
                         <br />
-                        {{ data }} : {{ pred }}
+                        Text: {{ data }} <br/>
+                        Sentiment:{{ pred }}
                         {% endif %}
-                    </p>
+                    </h3>
                 </div>
                 
             </div>

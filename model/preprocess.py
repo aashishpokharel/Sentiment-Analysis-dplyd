@@ -53,7 +53,7 @@ def replace_emojis(df, columns= ['text']):
           ';-)': 'wink', 'O:-)': 'angel','O*-)': 'angel','(:-D': 'gossip', '=^.^=': 'cat'}
     for col in columns:
             for emoji in emojis.keys():
-                    df['text'] = df['text'].replace(emoji, "EMOJI" + emojis[emoji])
+                    df['text'] = df['text'].replace(emoji, "Em" + emojis[emoji])
     return df
 
 def filter_url(df, columns = ['text']):
